@@ -1,0 +1,68 @@
+<div class="wrapper">
+	<div class="show-modal" style="overflow-x: hidden;">
+		<div class="close-button-wrapper" tappable (click)="close()">
+			<div class="close-button">
+				<div class="l1"></div>
+				<div class="l2"></div>
+			</div>
+		</div>
+
+		<div class="modal-name title">{{ drill.nombre }}</div>
+		<div class="main-info">
+			<div class="drill-info">
+				<div class="modal-subtitle" *ngIf="drill.descripcion != null">
+					{{ drill?.descripcion }} 	 		
+				</div>
+				<p class="modal-description" *ngIf="drill.texto != null && drill.texto.length > 0 && drill.texto != 'null'">{{ drill.texto }}</p>
+			</div>
+			
+  		<div *ngIf="drill.id_tipo_wod == 3" class="quill {{ drill.texto && drill.texto.length > 0 ? 'hidden' : '' }}" id="quill"></div>
+
+			<ng-container *ngFor="let round of drill.rondas; let i = index">
+				<div class="round">
+					<div class="round-number">{{ round.nombre}}</div>
+		      <p class="round-name">{{ round.tipo_ronda?.nombre}}</p>			
+		      <div class="round-info">
+		      	<div class="round-block" *ngIf="round.descanso">
+		      		<label>Descanso:</label>
+		      		<p>{{ round.descanso }}</p>
+		      	</div>
+		      	<div class="round-block" *ngIf="round.duracion">
+		      		<label>Duración:</label>
+		      		<p>{{ round.duracion }} min</p>
+		      	</div>
+		      	<div class="round-block" *ngIf="round.repeticiones">
+		      		<label>Repeticiones:</label>
+		      		<p>{{ round.repeticiones }}</p>
+		      	</div>
+		      	<div class="round-block" *ngIf="round.sets">
+		      		<label>Rounds/Sets:</label>
+		      		<p>{{ round.sets }}</p>
+		      	</div>
+		      	<div class="round-block" *ngIf="round.tiempo_limite">
+		      		<label>Tiempo límite:</label>
+		      		<p>{{ round.tiempo_limite }}</p>
+		      	</div>
+		      </div>		
+	      	
+	      	<div class="notes" *ngIf="round.notas">
+	      		<label>Notas:</label>
+	      		<p>{{ round.notas }}</p>
+	      	</div>
+	      	<div class="editor-wrapper">
+	      		<div class="editor" id="editor-{{ round.id }}"></div>
+	      	</div>	      	
+			    <div class="round-exercise" *ngFor="let ejercicio of round.ejercicios; let j = index" tappable (click)="showExercise(ejercicio)">
+						<div class="number">{{ ejercicio.repeticiones }}</div>
+						<div class="info"> 
+				      <h4 class="name">{{ ejercicio.ejercicio?.nombre }} <span *ngIf="ejercicio.intensidad">({{ ejercicio.intensidad }})</span></h4>
+				      <p class="muscle-group">{{ ejercicio.ejercicio?.descripcion}}</p>
+						</div>
+			    </div>
+				</div>
+			</ng-container>
+
+
+
+	</div> 
+</div>	

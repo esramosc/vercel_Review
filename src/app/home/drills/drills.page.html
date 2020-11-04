@@ -1,0 +1,45 @@
+<ion-content>
+  <div class="classes">
+    <div class="screen-header" *ngIf="showGymButton">
+      <div class="store-picker">
+        <button
+          class="store gym with-image picked"
+          tappable (click)="setCatalog('gym')"
+          *ngIf="showGymButton"
+        >
+          <img src="assets/images/icons/gym-icon.svg" alt="">
+        </button>
+        <button
+          class="oden with-image"
+          tappable (click)="setCatalog('oden')"
+          *ngIf="showOdenButton"
+        >
+          <img src="assets/images/icons/oden-icon-dark.svg">
+        </button>
+      </div>  
+    </div>
+    <div class="class" *ngIf="showLoader">
+      <div class="info">
+        <div class="name" style="float:left">
+          Cargando entrenamientos
+        </div>
+        <div style="float:left; margin-left: 5px">
+          <img src="../../../assets/icon/loader.svg" alt="Loader">
+        </div>
+      </div>
+    </div>
+    <div class="class" *ngIf="isEmpty">
+      <div class="info">
+        <div class="name">No hay entrenamientos este día.</div>
+      </div>
+    </div>
+    <div class="class" *ngFor="let drill of drillsPerDate" tappable (click)="showDrill(drill)">
+      <div class="info">
+        <div class="name">{{ drill.nombre }} </div>
+        <div class="trainer">
+          {{ drill.descripcion }}
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

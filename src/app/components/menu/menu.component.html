@@ -1,0 +1,53 @@
+<div class="branch-info" *ngIf="branch">
+	<div style="float:left; padding: 0px;margin: 0px;">
+		<ion-button (click)="changeBranch()" color="light">
+			{{ branch.nombre }}
+			<ion-icon name="caret-down-outline"></ion-icon>
+		</ion-button>
+	</div>
+	<div style="float: right;">
+		<div class="tooltip" style="float:left">
+			<ion-icon
+				name="scan-outline"
+				(click)="openFullScreen()"
+				*ngIf="!isFullScreen"
+			></ion-icon>
+			<ion-icon
+				name="close-outline"
+				(click)="closeFullScreen()"
+				*ngIf="isFullScreen"
+			></ion-icon>
+			<div class="oden-tooltip">
+				{{isFullScreen ? 'Salir Full Screen' : 'Full Screen'}}
+			</div>
+		</div>
+		<div class="tooltip" style="float: left;">
+			<a href="https://cronometro.oden.mx/" target="_Blank" >
+				<ion-icon src="assets/icon/timer.svg"></ion-icon>
+			</a>
+			<div class="oden-tooltip">Timer</div>
+		</div>
+		<div class="tooltip" style="float: left;">
+			<a
+				href="https://www.youtube.com/channel/UCIincAE57qG14s5UYJX1RVg/videos"
+				target="_Blank"
+				style="margin-right: 10px;"
+			>
+				<ion-icon name="logo-youtube"></ion-icon>
+			</a>
+			<div class="oden-tooltip">Canal ODEN</div>
+		</div>
+		<ion-button color="dark" (click)="logout()">Salir</ion-button>
+	</div>
+</div>
+<div class="options">
+	<a class="option" routerLink="/home/attendance" routerLinkActive="active">
+		Registro a Clases
+	</a>
+	<a class="option" [routerLink]="['/home/drills', random]" routerLinkActive="active">
+		Entrenamiento
+	</a>
+	<a class="option" routerLink="/home/ranking" routerLinkActive="active">
+		Ranking
+	</a>
+</div>

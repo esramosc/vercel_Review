@@ -1,0 +1,29 @@
+<div class="wrapper">
+	<div class="show-exercise">
+		<div class="close-button-wrapper" tappable (click)="close()">
+			<div class="close-button">
+				<div class="l1"></div>
+				<div class="l2"></div>
+			</div>
+		</div>
+
+		<div class="exercise-name title">
+			{{ exercise.ejercicio.nombre }}
+		</div>
+		<div class="main-info">
+			<img src="{{ exercise.ejercicio.banner }}" class="header">
+			<br>
+			<div class="exercise-description" *ngIf="exercise.ejercicio.descripcion != null">{{ exercise.ejercicio.descripcion }}</div>
+			<div class="exercise-instructions" *ngIf="exercise.ejercicio.instrucciones != null">{{ exercise.ejercicio.instrucciones }}</div>
+			<div class="key-points" *ngIf="exercise.ejercicio.puntos_clave && exercise.ejercicio.puntos_clave.length > 0">
+				<h4 class="subtitle">Puntos claves</h4>
+				<ul>
+					<li class="key-point" *ngFor="let kp of exercise.ejercicio.puntos_clave">
+						{{ kp.descripcion }}
+					</li>
+				</ul>
+			</div>
+			<img *ngFor="let g of exercise.ejercicio.galeria" src="{{ g.imagen?.url }}" class="header">
+		</div>
+	</div> 
+</div>	

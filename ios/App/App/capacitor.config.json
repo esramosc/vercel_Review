@@ -1,0 +1,11 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "oden-registry",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {},
+  "server": {
+    "url": "http://192.168.100.3:8100"
+  }
+}

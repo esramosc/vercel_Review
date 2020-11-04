@@ -1,0 +1,87 @@
+<ion-content>
+  <div class="classes-wrapper">
+    <div class="classes">
+      <div class="class" *ngIf="clases?.length == 0">
+        <div class="info">
+          <div class="name">No hay clases este día.</div>
+        </div>
+      </div>
+      <div class="fill-row" *ngIf="clases?.length > 0">
+        <div class="column">
+          <div class="class" *ngFor="let c of clases">
+            <div class="info">
+              <div class="name">
+                {{ c.nombre }} 
+                <span class="sessions" *ngIf="c.sesiones.length > 0">
+                  <br>{{c.sesiones.length}} horarios disponibles
+                </span>
+              </div>
+            </div>
+            <div class="reservation" tappable (click)="openSelectSessionModal(c)">
+              Ver
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="class">
+            <ion-item>
+              <ion-col>
+                <ion-select
+                  placeholder="Clases"
+                  [(ngModel)]="selectedClass"
+                  (ngModelChange)="getSessions()"
+                >
+                  <ion-select-option
+                    *ngFor="let clase of clases"
+                    value="{{ clase.id }}"
+                  >
+                    {{ clase.nombre }}
+                  </ion-select-option>
+                </ion-select>
+              </ion-col>
+              <ion-col>
+                <ion-select
+                  placeholder="Sesiones"
+                  [(ngModel)]="selectedSession"
+                  (ngModelChange)="getAttendants()"
+                >
+                  <ion-select-option
+                    *ngFor="let sesion of sessionOptions"
+                    value="{{ sesion.id }}"
+                  >
+                    {{sesion.fecha_inicio | date:'shortTime'}}
+                  </ion-select-option>
+                </ion-select>
+              </ion-col>
+            </ion-item>
+          </div>
+          <div class="class">
+            <ion-row *ngIf="schedule">
+              <ion-col class="schedule">
+                <label>
+                  {{clase}} {{schedule | date:'shortTime'}}
+                </label>
+              </ion-col>
+            </ion-row>
+          </div>
+          <div class="class" *ngFor="let attendant of attendantsList">
+            <ion-row class="info">
+              <ion-col class="name">
+                <ion-item>
+                  <ion-avatar item-start>
+                    <img [src]="attendant.usuario.foto" class="{{getMembershipStatus(attendant)}}">
+                  </ion-avatar>
+                  <h3 style="padding-left: 5px;">
+                    {{attendant.usuario.nombre}} 
+                    {{attendant.usuario.apellido_paterno}} 
+                    {{attendant.usuario.apellido_materno}}
+                  </h3>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

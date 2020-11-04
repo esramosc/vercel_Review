@@ -1,0 +1,11 @@
+<ion-content>
+	<div class="wrapper">	
+		<div class="inner-wrapper">
+			<h1>Escoge tu sucursal</h1>
+			<ion-select [(ngModel)]='selected_branch' placeholder='Toca aquí para seleccionar.'>
+				<ion-select-option *ngFor='let b of branches' [value]='b'>{{ b.nombre }}</ion-select-option>
+			</ion-select>	
+			<ion-button tappable (click)="save()">Guardar selección</ion-button>
+		</div>
+	</div>
+</ion-content>

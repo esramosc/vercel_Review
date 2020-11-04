@@ -1,0 +1,43 @@
+# Oden Blackboard 
+
+El propósito de este módulo es remplazar el pizarrón de ejercicios y de asistencia de gimnasios. Toda la funcionalidad ya se encuentra en diferentes partes de la aplicación. Se tiene que juntar en este proyecto como una aplicación "standalone". 
+
+## Componentes
+
+En la siguiente imagen se ven 4 layouts: 
+
+**1. En la parte superior, la navegación principal: **
+
+La navegación debe permitir cambiar entre tres elementos; el registro a clases, la visualización de entrenamientos y el ranking. 
+
+**2. En la parte izquierda, el componente de cambio de fechas:**
+
+El componente de cambio de fechas debe funcionar y verse de la misma manera que la selección de fecha en la sección de Entrenamientos la aplicación móvil: 
+
+Este componente y su fecha deben compartirse entre todos los otros componentes (sin repetirse). El componente tiene la siguiente estructura: 
+
+-- NOMBRE DEL MES MOSTRADO --
+<- flechas para cambiar de semana ->
+-- día 1 de la semana -- 
+-- día 2 de la semana --
+-- día 3 de la semana --
+-- día 4 de la semana --
+-- día 5 de la semana --
+-- día 6 de la semana --
+-- día 7 de la semana --
+
+Al seleccionar un día, este debe cambiar de color a tener el color primario de fondo, con letras negras. 
+
+**3. Al centro, el componente "índice" actual:**
+
+Con registro a clases seleccionado en la navegación principal , el componente del centro debe mostrar el índice de clases con el mismo estilo que la aplicación móvil. Aquí la hora debe ir antes del nombre de la clase y las clases deben estar ordenadas por hora. Cuando un usuario selecciona una clase, a la derecha, debe salir un componente de registro a clases donde pueda buscarse por nombre para registrar su asistencia. 
+
+Con Entrenamiento seleccionado, puede ver en el centro los entrenamientos para dicha fecha. Si selecciona un elemento, en el componente de la derecha podrá ver los detalles de ese entrenamiento tal y como funciona ahora en la aplicación móvil. 
+
+Con la opción de Ranking en la navegación principal seleccionada, la parte del centro muestra el ranking de la fecha actual. Los filtros deben ser los mismos que en la aplicación móvil. 
+
+![](https://nuva-vcs.s3-us-west-1.amazonaws.com/oden-github/IMG_25C30E6203F3-1.jpeg)
+![](https://nuva-vcs.s3-us-west-1.amazonaws.com/oden-github/IMG_25C30E6203F3-2.jpeg)
+![](https://nuva-vcs.s3-us-west-1.amazonaws.com/oden-github/IMG_25C30E6203F3-3.jpeg)
+
+

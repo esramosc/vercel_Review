@@ -1,0 +1,29 @@
+<div class="wrapper">
+	<div class="show-modal">
+		<div class="close-button-wrapper" tappable (click)="close(false)">
+			<div class="close-button">
+				<div class="l1"></div>
+				<div class="l2"></div>
+			</div>
+		</div>
+		<div class="modal-name title">Buscar atletas</div>
+		<div class="input-wrapper">
+			<input type="text" placeholder="Busca aquí tu nombre." [(ngModel)]='searchTerm' (ngModelChange)='getList(1)'>
+			<button tappable (click)="close(true)">Registrar asistencias</button>
+		</div>
+		<ion-grid>
+			<ion-row class="header">
+				<ion-col size="1"></ion-col>
+				<ion-col>Nombre</ion-col>
+				<ion-col>Correo</ion-col>
+				<ion-col col="2"></ion-col>
+			</ion-row>
+			<ion-row *ngFor="let user of users">
+				<ion-col size="1"><img [src]="user.foto" class="profile-pic"></ion-col>
+				<ion-col>{{ user.nombre + ' ' + user.apellido_paterno + ' ' + user.apellido_materno }}</ion-col>
+				<ion-col>{{ user.email | slice:0:14 }}</ion-col>
+				<ion-col col="2"><button tappable (click)="toggleUser($event, user)">Seleccionar</button></ion-col>
+			</ion-row>
+		</ion-grid>
+	</div>
+</div>

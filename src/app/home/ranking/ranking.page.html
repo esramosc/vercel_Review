@@ -1,0 +1,80 @@
+<ion-content>
+	<canvas ion-fixed id="confetti"></canvas>
+  <div class="screen-header">
+    <!--div class="title">Ranking</div-->
+    <div class="picker">
+      <button class="red all picked" tappable (click)="setGender('A')">Todos</button>
+      <button class="red male" tappable (click)="setGender('H')">Hombres</button>
+      <button class="red female" tappable (click)="setGender('M')">Mujeres</button>
+    </div>
+    <div class="store-picker">
+      <button class="store gym with-image picked" tappable (click)="setCatalog('gym')"><img src="assets/images/icons/gym-icon.svg" alt=""></button>
+      <button class="oden with-image" tappable (click)="setCatalog('oden')"><img
+        src="assets/images/icons/oden-icon-dark.svg"></button>
+    </div>
+  </div>
+  <div class="datePosition">
+    <div class="date-header">
+      <div class="date">
+        {{ current_date | date:'mediumDate' }}
+      </div>
+    </div>
+  </div>
+  <div class="ranking-wrapper">
+    <!--div class="picker">
+      <button class="red all picked" tappable (click)="setGender('A')">Todos</button>
+      <button class="red male" tappable (click)="setGender('H')">Hombres</button>
+      <button class="red female" tappable (click)="setGender('M')">Mujeres</button>
+
+    </div-->    
+    <div class="horizontal-fields">
+        <ion-select placeholder="WOD" [(ngModel)]="wod_id" (ngModelChange)="changeWod()">
+          this.wods
+          <ion-select-option  *ngFor="let wod of wods" value="{{ wod.id }}">{{ wod.nombre }}</ion-select-option>
+        </ion-select>
+        <ion-select placeholder="Secciones" [(ngModel)]="ronda_id" (ngModelChange)="changeRonda()">
+          <ion-select-option  *ngFor="let ronda of rondas" value="{{ ronda.id }}">{{ ronda.nombre }}</ion-select-option>
+        </ion-select>
+        <button ion-button tappable (click)="showSelectedWOD()">Ver workout</button>
+        <div class="field">
+          <input type="text" [(ngModel)]="query" (ngModelChange)="handleSearchbarQuery()" placeholder="Busca aquí">
+        </div>
+        <div class="field">
+          <label>Rx'd</label>
+
+          <ion-toggle color="primary" [(ngModel)]="rx" (ngModelChange)="changeRx()"></ion-toggle>
+
+        </div>
+    </div>    
+    <br>
+    <div class="participants">
+      <div 
+        *ngFor="let r of ranking; let i = index;" 
+        tappable (click)="showDetail(r)"
+        class="rank {{ user != undefined && r.id_usuario == user.id ? 'self' : '' }} {{ r.position <= 10 ? 'top-3' : '' }}" 
+      >
+        <div class="place">{{ r.position }}</div>
+        <img class="photo" *ngIf="r.foto" src="{{ r.foto }}" />
+        <img class="photo contain" *ngIf="!r.foto" src="assets/images/icons/oden-icon-dark.svg" />
+        <div class="name">
+          <div class="column1">
+            {{ r.nombre }} {{r.apellido_paterno}}
+          </div>
+          <div class="column2" *ngIf="catalog == 'oden'">
+            <span class="spacing">{{r.gym}}</span>
+          </div>
+          <div class="column3" *ngIf="catalog == 'oden'">
+            <span class="spacing">{{r.ciudad}}</span>
+          </div>
+          <div class="column3" *ngIf="catalog == 'oden'">
+            <span class="spacing">{{r.pais}}</span>
+          </div>
+        </div>
+        <!--div class="value">{{ r.resultado }}</div-->
+        <div class="value">{{ formatResult(r.resultado) }}</div>
+      </div>
+    </div>
+
+
+  </div>
+</ion-content>

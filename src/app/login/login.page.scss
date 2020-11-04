@@ -1,0 +1,385 @@
+ion-content {
+  height:  100vh; 
+  ::-webkit-scrollbar {
+    display: none;
+  } 
+}
+$primary: #00EEFF;
+
+.ui-login {
+  width:  100vw; 
+  height:  100vh; 
+  display: grid; 
+  background:  rgba(#202020, 1); 
+  grid-template-columns: 1fr 1fr;  
+  grid-template-rows:  100%; 
+  grid-template-areas: "background login"; 
+  @media screen and (max-width: 900px) {
+    overflow:  scroll; 
+    -webkit-overflow-scrolling:  touch; 
+    grid-template-rows:  45vh auto; 
+    grid-template-columns:  1fr; 
+    grid-template-areas:  
+      "background"
+      "login"
+    ; 
+  }
+  .overlay {
+    z-index:  1; 
+    position: absolute; 
+    height:  100%; 
+    width:  100%;
+    top:  0; 
+    left:  0; 
+    background:  #202020;
+    opacity: .3;
+  }
+  .version {
+    color:  #fff; 
+    opacity:  .5; 
+    margin-top: 12px;
+    font-size:  12.5px; 
+    font-weight:  600; 
+  }
+  .background {
+    grid-area: background; 
+    width:  100%;
+    height:  100%;
+    position: absolute;
+    top:  0; 
+    left:  0;  
+    background-image:  url("/assets/images/login-background.jpg"); 
+    background-size:  cover; 
+    @media screen and (max-width: 900px) {
+      height:  45vh;
+      top:  initial;
+      left:  initial;
+      position: relative;
+    }    
+  }
+  .qr-code {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    position: fixed;
+    left:  20px; 
+    bottom:  20px; 
+    z-index: 10; 
+       
+    .qr {
+      height:  124px; 
+      width:  124px; 
+      object-fit:  contain; 
+      object-position:  center center; 
+      margin-right: 24px;
+    }
+    .info {
+      display:  grid; 
+      grid-gap:  12px; 
+      grid-template-columns:  auto; 
+      grid-template-rows:  auto auto auto; 
+      .athlete,
+      .location, 
+      .city {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        font-size:  24px; 
+        font-weight:  300; 
+        color:  #fff;
+        img {
+          height:  24px; 
+          width:  24px; 
+          object-fit:  contain; 
+          object-position:  center center; 
+          margin-right: 4px; 
+        } 
+      }
+      .location {
+        font-weight:  600; 
+      }
+    }
+    @media screen and (max-width: 900px) {
+      position: absolute;
+      top:  20px; 
+      right:  20px; 
+      left: initial;
+      bottom: initial;
+      height:  auto;
+      flex-direction:  row-reverse; 
+      grid-gap:  6px; 
+      .qr {
+        height:  72px;
+        width:  72px;
+        margin-right: 0;
+        margin-left: 12px;
+      }
+      .info {
+        .location, 
+        .athlete, 
+        .city {
+          font-size:  16px; 
+          line-height:  16px; 
+          justify-content:  flex-end; 
+          text-align:  right;
+          img {
+            height:  16px; 
+            width:  16px; 
+          }
+        }
+      }
+    }     
+  }  
+  .ui-login-box {
+    z-index:  2; 
+    position: relative;
+    padding:  40px; 
+    min-width:  440px; 
+    background:  rgba(#202020, .65); 
+    border-radius:  0px; 
+    width:  100%;  
+    height: 100%;
+    box-sizing:  border-box; 
+    grid-area: login; 
+    display:  grid; 
+    grid-template-rows:  1fr auto 2fr; 
+    grid-template-columns:  1fr; 
+    grid-gap:  20px; 
+    grid-template-areas: 
+      "logo"
+      "form-area"
+      "bottom"; 
+    box-shadow:
+      0 2.8px 2.2px rgba(0,0,0, 0.02),
+      0 6.7px 5.3px rgba(0,0,0, 0.028),
+      0 12.5px 10px rgba(0,0,0, 0.035),
+      0 22.3px 17.9px rgba(0,0,0, 0.042),
+      0 41.8px 33.4px rgba(0,0,0, 0.05),
+      0 100px 80px rgba(0,0,0, 0.07)
+    ;
+    @media screen and (max-width: 900px) {
+      min-height:  55vh; 
+      height:  auto; 
+      grid-template-rows:  auto auto; 
+      grid-template-columns: 100px 1fr;       
+      grid-template-areas:  
+        "logo form-area"
+        "empty bottom";
+
+    }
+    .logo {
+      width:  100px; 
+      height:  auto; 
+      margin: auto; 
+      grid-area:  logo; 
+      @media screen and (max-width: 900px) {
+        margin: 0;
+      }
+    }
+    h4 {
+      margin-top:  20px; 
+      margin-bottom:  20px; 
+      font-size:  18px; 
+      color:  #fff;
+      font-weight:  600; 
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  input[type="submit"],
+  button {
+    -webkit-appearance:  none; 
+    border:  none; 
+    border-radius:  15px; 
+    // background:  darken($primary, 10%);
+    background: $primary;
+    border: darken($primary, 20%);
+    color:  #000;
+    border-radius:  5px; 
+    width:  100%; 
+    margin-top: 12px;
+    padding:  18px 24px; 
+    text-align:  center; 
+    font-size:  14px; 
+    font-weight:  600; 
+    letter-spacing:  1px; 
+  }
+  input {
+    font-size:  16px; 
+    padding:  20px 0px; 
+    height:  56px; 
+    border:  none; 
+    border-bottom:  solid 1px rgba(255,255,255,.1); 
+    background:  none; 
+    width:  280px; 
+    box-sizing:  border-box; 
+    transition:  all .3s linear; 
+    color:  #fff; 
+    font-weight:  400;
+    -webkit-appearance:  none; 
+    outline:  none;
+    border-radius:  0; 
+    &:focus {
+      border-bottom:  solid 1px lighten($primary, 10%); 
+      outline: 0; 
+      box-shadow:  0 2px 6px -8px rgba(lighten($primary, 10%), .45);
+    }
+  }
+  .forgot-password {
+    padding:  12px 12px; 
+    margin:  0;
+    margin-left: auto;
+    width: 100%; 
+    text-align: center;
+    color:  #fff;
+  }
+  .bottom {
+    height:  auto; 
+    width:  100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top:  40px; 
+    grid-area:  bottom; 
+    
+    .bottom-link {
+      color:  lighten($primary, 30%);
+      font-size:  14px; 
+      font-weight:  400; 
+      margin-bottom: 12px;
+      text-decoration:  underline; 
+      text-align: center;
+      width: 100%;
+    }
+    @media screen and (max-width: 900px) {
+      padding: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  .social {
+    display:  grid; 
+    grid-template-rows:  auto; 
+    grid-template-columns:  1fr 1fr 1fr; 
+    margin-left: auto;
+    margin-right: auto;
+    width:  auto; 
+    grid-gap:  20px; 
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration:  none; 
+      color:  lighten($primary, 20%);
+      * {
+        font-size:  34px; 
+        line-height:  34px; 
+      }
+      img {
+        height:  34px; 
+        width:  34px; 
+        object-fit:  contain; 
+        object-position:  center center; 
+      }
+    }
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+    max-width:  400px;
+    width:  100%; 
+    padding:  40px; 
+    grid-area:  form-area; 
+    @media screen and (max-width: 900px) {
+      padding:  0; 
+      margin-left: 88px;
+      h4 {
+        margin:  0; 
+        text-align:  left; 
+        margin-bottom: 18px;
+      }
+    }
+
+  }
+  .floating-label {
+    position:  relative; 
+    margin-bottom:  10px;
+    width:  100%; 
+    margin-left: -44px;
+    label {
+      position:  absolute; 
+      top: calc(50% - 14px);
+      left:  0; 
+      opacity:  0; 
+      transition:  all .3s ease; 
+      padding-left:  44px; 
+      color:  #fff;
+    }
+    input {
+      width:  100%; 
+      margin-left:  44px;
+      display:  flex; 
+      &::placeholder {
+        color:  #fff;
+        opacity:  .75;
+      }
+    }
+    .icon {
+      position:  absolute; 
+      top:  0; 
+      left:  0; 
+      height:  56px; 
+      width:  44px; 
+      display:  flex; 
+      svg {
+        height:  30px; 
+        width:  30px; 
+        margin:  auto;
+        opacity:  .35; 
+        transition:  all .3s ease; 
+        fill:  #fff;
+        path {
+          transition:  all .3s ease; 
+          fill:  #fff;
+        }
+      }
+    }
+    input:not(:placeholder-shown) {
+      padding:  28px 0px 12px 0px; 
+    }
+    input:not(:placeholder-shown) + label {
+      transform:  translateY(-10px); 
+      opacity:  .7; 
+    }
+    input:valid:not(:placeholder-shown) + label + .icon {
+      svg {
+        opacity:  1; 
+        path {
+          fill:  darken($primary, 10%); 
+        }      
+      }
+    }
+    input:not(:valid):not(:focus) + label + .icon {
+      animation-name: shake-shake;
+      animation-duration: .3s;
+    }
+  }
+
+}
+$displacement:  3px; 
+@keyframes shake-shake {
+  0% { transform: translateX(-$displacement);}
+  20% { transform: translateX($displacement);}
+  40% { transform: translateX(-$displacement);}
+  60% { transform: translateX($displacement);}  
+  80% { transform: translateX(-$displacement);}
+  100% { transform: translateX(0px);}
+}

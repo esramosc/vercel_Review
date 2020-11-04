@@ -1,0 +1,19 @@
+<div class="dates" *ngIf="months">
+	<div class="arrows">
+	  <!-- <ion-icon class ="forward" name="arrow-dropright-circle" 
+	  (tap)="getWeekDays(week[6])" ng-disabled="(getWeekDays(cont) > 2)"></ion-icon>  -->
+	  <ion-icon name="arrow-back-outline" tappable (click)="getPastWeekStartDate(week[0])"></ion-icon>
+	  <ion-icon name="arrow-forward-outline" tappable (click)="getWeekDays(week[6])"></ion-icon>
+	  <!-- <ion-icon class ="back" name="arrow-dropleft-circle" 
+	  (tap)="getPastWeekStartDate(week[0])"></ion-icon>	 -->	
+	</div>	
+  <ng-container *ngFor="let month of month_keys; let i = index">
+    <div class="month-name">{{ month_names[month] }}</div>
+    <div *ngFor="let date of months[month]; let j = index"  
+         class="date {{ j == 0 && i == 0 ? 'selected' : '' }}" 
+         tappable (click)="setDate($event, date)">
+    	<div class="number">{{ date.getDate() }}</div>
+    	<div class="day">{{ day_names[date.getDay()] }}</div>  
+    </div>
+  </ng-container>
+</div>

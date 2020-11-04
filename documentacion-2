@@ -1,0 +1,28 @@
+El proyecto actual incluye lo siguiente: 
+
+Routing: 
+
+Todo cambio en interfaz se tiene que manejar con routing de Angular
+
+Guards: 
+
+Hay 2 routing guards ya existentes: 
+
+	Auth Guard Service: 
+
+		Se encarga de asegurarse que el usuario esté autenticado. 
+		Si el usuario no está autenticado, lo redirige a la página de Login. 
+
+	Login Guard Service: 
+
+		Se encarga de asegurarse que el usuario sea redirigido a Home si ya está autenticado. (ej. usuario trata de entrar a /login/ y se redirige a /home/).
+
+Services: 
+
+	Actualmente hay dos servicios programados:
+
+	API, para manejar los API requests 
+	Auth Service, para manejar lo relacionado a autenticación. 
+
+
+ 

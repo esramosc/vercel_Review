@@ -1,0 +1,38 @@
+:host {
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width:  100%; 
+		height:  100%; 
+	}
+	.inner-wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width:  auto; 
+		height:  auto; 
+		padding:  40px; 
+		border-radius:  12px; 
+		box-sizing:  border-box; 
+		background:  #202020; 
+		h1 {
+			margin: 0 0; 
+			margin-bottom:  20px; 
+		}
+		ion-select {
+			margin-bottom:  20px; 
+			width:  100%; 
+			border:  solid 1px rgba(#fff, .15); 
+			background:  #404040; 
+			padding:  12px; 
+			border-radius:  12px; 
+		}
+	}
+	ion-select,
+	ion-select-option {
+		color: #fff;
+	}
+}

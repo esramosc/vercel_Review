@@ -1,0 +1,282 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+.ql-editor {
+	.ql-video {
+		width:  100% !important; 
+		height:  220px !important; 
+	}	
+	p {
+    font-size:  max(1.4vw, 18px); 
+    color: #fff;
+	}
+	h1,h2,h3 {	
+    font-size:  max(2.4vw, 24px); 
+    color: #fff;
+	}
+	h4,h5,h6 {
+    font-size:  max(1.8vw, 21px);
+    color: #fff; 
+	}	
+}
+.oden-video {
+	width:  100%;
+	display:  flex;
+	flex-direction:  column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	.video-wrapper-text {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items:  center;
+		justify-content: space-between;
+		width:  100%;
+		height:  auto;
+		border-bottom:  solid 1px rgba(#fff, .1);
+		padding:  18px 0px;
+		box-sizing:  border-box;
+		margin:  0;
+		div {
+			font-size:  16px;
+			line-height:  16px;
+			font-weight:  600;
+			color:  #fff;
+		}
+		img {
+			height:  26px !important;
+			width: 26px !important;
+		}
+		* {
+			pointer-events: none;
+		}
+	}
+	.video-wrapper {
+		width: 100%;
+		padding-bottom:  56.7%;
+		position: relative;
+		display:  none;
+
+		iframe {
+			border:  none;
+			-webkit-appearance: none;
+			position: absolute;
+			top: 0;
+			left:  0;
+			width: 100%;
+			height:  100%;
+		}
+	}
+	.show-label { display: block; }
+	.hide-label { display: none; }
+	&.shown {
+		.video-wrapper { display: block; }
+		.show-label { display: none; }
+		.hide-label { display: block; }
+	}
+}
+.responsive-modal {
+	.modal-wrapper {
+		width:  80vw; 
+		height:  80vh; 
+	}
+}
+
+.oden-video {
+	width:  100%;
+	display:  flex;
+	flex-direction:  column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	.video-wrapper-text {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items:  center;
+		justify-content: space-between;
+		width:  100%;
+		height:  auto;
+		border-bottom:  solid 1px rgba(#fff, .1);
+		padding:  18px 0px;
+		box-sizing:  border-box;
+		margin:  0;
+		div {
+			font-size:  16px;
+			line-height:  16px;
+			font-weight:  600;
+			color:  #fff;
+		}
+		img {
+			height:  26px !important;
+			width: 26px !important;
+		}
+		* {
+			pointer-events: none;
+		}
+	}
+	.video-wrapper {
+		width: 100%;
+		padding-bottom:  56.7%;
+		position: relative;
+		display:  none;
+
+		iframe {
+			border:  none;
+			-webkit-appearance: none;
+			position: absolute;
+			top: 0;
+			left:  0;
+			width: 100%;
+			height:  100%;
+		}
+		img {
+			height:  26px !important;
+			width: 26px !important;
+		}				
+	}
+	.show-label { display: block; }
+	.hide-label { display: none; }
+	&.shown {
+		.video-wrapper { display: block; }
+		.show-label { display: none; }
+		.hide-label { display: block; }
+	}
+}
+
+.quill-custom-video {
+	width:  100%;
+	display:  flex;
+	flex-direction:  column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	.text {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items:  center;
+		justify-content: space-between;
+		width:  100%;
+		height:  auto;
+		border-bottom:  solid 1px rgba(#fff, .1);
+		padding:  18px 0px;
+		box-sizing:  border-box;
+		margin:  0;
+		div {
+			font-size:  16px;
+			line-height:  16px;
+			font-weight:  600;
+			color:  #fff;
+		}
+		img {
+			height:  26px;
+			width: 26px;
+		}
+		* {
+			pointer-events: none;
+		}
+	}
+	.video-wrapper {
+		width: 100%;
+		padding-bottom:  56.7%;
+		position: relative;
+		display:  none;
+
+		iframe {
+			border:  none;
+			-webkit-appearance: none;
+			position: absolute;
+			top: 0;
+			left:  0;
+			width: 100%;
+			height:  100%;
+		}
+	}
+	.show-label { display: block; }
+	.hide-label { display: none; }
+	&.shown {
+		.video-wrapper { display: block; }
+		.show-label { display: none; }
+		.hide-label { display: block; }
+	}
+}
+
+.my-custom-alert .alert-wrapper {
+	min-width: 40% !important;
+	max-width: 60% !important;
+	width: 50% !important;
+}
+
+.oden-tooltip {
+	position: absolute;
+	top: 65px;
+	//left: 0;
+	width:  auto;
+	padding:  5px;
+	font-size:  12px;
+	border-radius:  5px;
+	background:  #000;
+	color: #fff;
+	display:  none;
+	text-align: left;
+	line-height:  135%;
+	font-weight:  500;
+	white-space: nowrap;
+}
+
+*::-webkit-scrollbar {
+	//width: 11px;
+	height: 5px;
+  }
+  *::-webkit-scrollbar-button {
+	width: 0px;
+	height: 0px;
+  }
+  *::-webkit-scrollbar-thumb {
+	background: #303030;
+	border: 1px solid #303030;
+	//border-radius: 50px;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+	background: #121212;
+  }
+  *::-webkit-scrollbar-thumb:active {
+	background: #121212;
+  }
+  *::-webkit-scrollbar-track {
+	background: #121212;
+	border: 0px none #ffffff;
+	//border-radius: 53px;
+  }
+  *::-webkit-scrollbar-track:hover {
+	background: #666666;
+  }
+  *::-webkit-scrollbar-track:active {
+	background: #333333;
+  }
+  *::-webkit-scrollbar-corner {
+	background: transparent;
+  }
